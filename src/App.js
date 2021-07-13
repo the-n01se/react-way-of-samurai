@@ -6,15 +6,15 @@ import Navbar from "./components/Navbar/Navbar"
 import Profile from "./components/Profile/Profile"
 import Dialogs from "./components/Dialogs/Dialogs"
 
-function App() {
+function App(props) {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
         <Navbar />
         <div className="app-wrapper-content">
-          <Route path="/dialogs" render={ () => <Dialogs />} />
-          <Route path="/profile" render={ () => <Profile />} />
+          <Route path="/dialogs" render={ () => <Dialogs messages={props.messages} dialogs={props.dialogs} />} />
+          <Route path="/profile" render={ () => <Profile posts={props.posts} />} />
         </div>
       </div>
     </BrowserRouter>
